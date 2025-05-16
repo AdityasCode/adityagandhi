@@ -1,16 +1,16 @@
 import { Logo } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Aditya",
+  lastName: "Gandhi",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
   role: "Design Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "gandh105@purdue.com",
+  location: "America/Indianapolis", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["English", "Hindi", "French"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
@@ -18,8 +18,7 @@ const newsletter = {
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
-      creativity and engineering.
+      You'll be updated on projects I publish!
     </>
   ),
 };
@@ -30,17 +29,17 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/adityascode/",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://www.linkedin.com/in/adga/",
   },
   {
     name: "X",
     icon: "x",
-    link: "",
+    link: "https://x.com/ad_06_ga",
   },
   {
     name: "Email",
@@ -63,8 +62,8 @@ const home = {
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon={false} style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      I'm Aditya, a CS student at Purdue, and I craft intuitive
+      <br /> robust applications, utilizing AI/ML and SWE principles.
     </>
   ),
 };
