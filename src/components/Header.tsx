@@ -7,7 +7,7 @@ import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
 import { routes, display } from "@/app/resources";
-import { person, about, blog, work, gallery } from "@/app/resources/content";
+import { person, about, blog, work, GitHub, gallery } from "@/app/resources/content";
 import { ThemeToggle } from "./ThemeToggle";
 
 type TimeDisplayProps = {
@@ -112,6 +112,23 @@ export const Header = () => {
                     selected={pathname.startsWith("/work")}
                   />
                 </>
+              )}
+              {routes["/GitHub"] && (
+                  <>
+                    <ToggleButton
+                        className="s-flex-hide"
+                        prefixIcon="grid"
+                        href="github.com/AdityasCode"
+                        label={GitHub.label}
+                        selected={pathname.startsWith("/GitHub")}
+                    />
+                    <ToggleButton
+                        className="s-flex-show"
+                        prefixIcon="grid"
+                        href="github.com/AdityasCode"
+                        selected={pathname.startsWith("/GitHub")}
+                    />
+                  </>
               )}
               {routes["/blog"] && (
                 <>
