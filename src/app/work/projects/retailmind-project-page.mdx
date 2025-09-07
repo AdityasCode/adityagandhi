@@ -1,0 +1,48 @@
+---
+title: "retailmind"
+publishedAt: "2024-04-01"
+summary: "Explore the enduring debate between using spaces and tabs for code indentation, and why this choice matters more than you might think."
+images:
+  - "/images/projects/project-01/cover-02.jpg"
+  - "/images/projects/project-01/image-03.jpg"
+
+link: "https://retailmind.streamlit.app/"
+---
+
+## Overview
+
+In the modern retail landscape, businesses are saturated with data yet starved for clear insights. Small to medium-sized businesses (SMBs), in particular, collect vast amounts of sales and operational data but lack the dedicated analysts or expensive software needed to translate that data into actionable strategy. This creates a critical gap between *what* is happening and *why* it's happening.
+
+This project, **RetailMind**, was built to solve this exact problem. The goal was to engineer an AI-powered analytics platform that acts as an autonomous data analyst, allowing any stakeholder—regardless of technical skill—to move beyond static dashboards and have a dynamic, conversational relationship with their data.
+
+---
+
+## Key Features
+
+- **Automated EDA Dashboard**: Provides an immediate, zero-effort overview of key performance indicators upon data upload. This features visualizations for sales-over-time, top-performing stores and departments, and the statistical impact of holidays on sales.
+- **Conversational AI Agent**: The interactive core of the platform. Built using **LangChain** and **GPT-4o**, the agent understands complex, natural language queries, maintains conversational memory for follow-up questions, and dynamically selects from over a dozen tools to generate bespoke analyses on demand.
+- **Causal Impact Analysis**: The platform's "killer feature." This system bridges the gap between quantitative sales data and unstructured qualitative information. It ingests documents (like marketing plans or press releases), creates **semantic vector embeddings**, and correlates these business events with statistical anomalies in sales data to provide data-driven explanations for performance spikes or dips.
+
+---
+
+## Technologies Used
+
+- **AI & Orchestration**: LangChain, OpenAI (GPT-4o)
+- **Frontend**: Streamlit
+- **Data Science**: Pandas, AutoGluon (Time-Series Forecasting)
+- **NLP & Vector Embeddings**: Sentence-Transformers
+- **Core Stack**: Python
+
+---
+
+## Challenges and Learnings
+
+The primary challenge was designing the Causal Impact Analysis feature. Building a system that can semantically understand an unstructured PDF, correlate its *meaning* with a specific time range, and then statistically compare that period against baseline sales data was a complex data engineering and data science problem. This required a robust architecture for creating, storing, and querying vector embeddings efficiently.
+
+Another significant challenge was engineering the agent's toolkit to be both flexible and reliable, ensuring it could correctly interpret user intent and select the appropriate tool (or sequence of tools) without hallucinating parameters.
+
+---
+
+## Outcome
+
+RetailMind successfully transforms the user from a passive observer of static charts into an active analyst. It provides a platform that can answer complex, multi-part questions in seconds, a process that would typically take a human analyst hours or even days of work manually cross-referencing spreadsheets and reports. The project proves the immense value of fusing LLM-based conversational agents with structured data and unstructured context, moving analytics from simple reporting to true strategic decision-making.

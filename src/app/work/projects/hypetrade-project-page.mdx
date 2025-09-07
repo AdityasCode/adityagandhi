@@ -1,0 +1,41 @@
+---
+title: "hypetrade"
+publishedAt: "2024-04-08"
+summary: "Development of a flexible and highly customizable design system using Next.js for front-end and Figma for design collaboration."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+  - "/images/projects/project-01/cover-02.jpg"
+  - "/images/projects/project-01/cover-03.jpg"
+  - "/images/projects/project-01/cover-04.jpg"
+link: "https://hypetrade.vercel.app/"
+---
+
+## Overview
+
+HypeTrade is a stock sentiment analysis tracker that combines real-time data pipelines, scalable cloud infrastructure, and interactive social features. The goal was to give retail investors a platform where they could track sentiment on their portfolios and major market tickers, while also engaging with other users through discussion forums and messaging. I led the project as Scrum Master, architected the cloud infrastructure, and contributed across both backend and frontend development.
+
+## Key Features
+
+- **Portfolio Sentiment Tracking**: Users can create multiple portfolios, each with multiple stocks, and receive sentiment updates for their holdings as well as the top 20 stocks in the S&P 500.
+- **AI-Powered Insights**: Integrated FinBERT sentiment analysis via Vertex AI with dynamic batching and tokenization, reducing API costs by 56% while processing 500+ tickers daily.
+- **Conversational Stock Advice**: Built a Gemini-powered chatbot that provides stock advice in natural language.
+- **Community Forum**: Developed a real-time discussion forum with threads, posts, and comments for each stock, alongside friend and messaging features.
+- **Automation & Notifications**: Set up a Reddit scraping job that runs twice daily, with daily sentiment summary emails (paused currently).
+- **Responsive & Fast UI**: Built with React + Vite, featuring dark/light mode and responsive pages consistently under 300ms response time.
+- **Authentication & Security**: Implemented full user auth with email registration, sign-in/sign-up flows, and 2FA.
+
+## Technologies Used
+
+- **Python + FastAPI**: For building REST APIs and backend services with sub-300ms latency.
+- **Google Cloud Platform**: Deployed on Cloud Run with high-availability infra and CI/CD pipelines, achieving 99% uptime.
+- **Vertex AI + Hugging Face API**: For deploying and scaling FinBERT sentiment analysis.
+- **React + Vite**: For a responsive and modern frontend, with dark/light mode support.
+- **Docker + Cloud Build**: For containerization and automated build/deploy pipelines.
+
+## Challenges and Learnings
+
+Scaling both infrastructure and machine learning inference was one of the biggest challenges. To keep costs down while handling 500+ tickers daily, I designed batching and tokenization strategies for FinBERT, cutting inference costs by over half. On the engineering side, building a real-time forum and messaging system required careful design around database queries and concurrency. Running as Scrum Master, I also learned to balance task prioritization, cross-team collaboration, and feature delivery in an agile setting.
+
+## Outcome
+
+The final platform achieved 99% uptime, supported 500+ concurrent users, and delivered sub-300ms response times on all APIs. The CI/CD pipeline reduced build times by 90%, streamlining developer velocity. HypeTrade gave users a robust, interactive environment to analyze sentiment, manage portfolios, and discuss ideas socially. The project showcases how cloud engineering, applied AI, and full-stack development can converge to deliver a production-ready, user-focused product.
