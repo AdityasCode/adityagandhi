@@ -24,8 +24,12 @@ import { notFound } from 'next/navigation';
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
+    return []; // This is the fix
+  }
+  if (!fs.existsSync(dir)) {
     notFound();
   }
+
 
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
