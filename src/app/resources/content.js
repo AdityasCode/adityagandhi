@@ -54,11 +54,11 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>[Website currently in development!]</>,
+  headline: <>[Translating big data into simple, actionable answers]</>,
   featured: {
     display: true,
     title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/retailmind-project-page",
   },
   subline: (
     <>
