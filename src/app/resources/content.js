@@ -10,6 +10,7 @@ const person = {
   avatar: "/images/avatar.jpg",
   email: "gandh105@purdue.com",
   location: "America/Indianapolis", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  actual_location: "America/Indiana/West Lafayette",
   languages: ["English", "Hindi", "French"], // optional: Leave the array empty if you don't want to display languages
 };
 
@@ -54,7 +55,7 @@ const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>[Translating big data into simple, actionable answers]</>,
+  headline: <>Translating big data into simple, actionable answers</>,
   featured: {
     display: true,
     title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
@@ -72,7 +73,7 @@ const about = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, ${person.role} from ${person.actual_location}`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -89,9 +90,8 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Aditya is a junior in CS at Purdue University, WL, focused in ML solutions and cloud infrastructure.
+        His work spans big data, sentiment analysis, and cloud deployment.
       </>
     ),
   },
@@ -100,41 +100,43 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Stealth Startup",
+        timeframe: "July 2025 - August 2025",
+        role: "AI Engineer Intern",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Engineered a conversational AI agent for retail analytics, processing data across 45 stores and 4,500+ department-store combinations to answer complex business queries in natural language, bringing real-world insights and KPAs with simple visualizations and summaries to plainly numerical analyses.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Developed a novel causal inference feature using vector search to correlate unstructured text events (e.g., marketing plans) with sales data, automatically identifying root causes for performance anomalies.
+          </>,
+          <>
+            Architected a multi-tool agent with multithreading, ensuring a sub-300ms latency responsive UI during long-running ML tasks.
+          </>,
+          <>
+            Implemented a hierarchical forecasting model using MinT Reconciliation from the ground up, outperforming baseline models and increasing prediction accuracy by over 60%.
           </>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
+            // src: "/images/projects/project-01/cover-01.jpg",
+            // alt: "Once UI Project",
+            // width: 16,
+            // height: 9,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Indegene",
+        timeframe: "May 2024 - July 2024",
+        role: "Software Engineering Intern in Chief Technology Operations",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Engineered a Retrieval-Augmented Generation pipeline to analyze multi-hundred-page pharmaceutical regulatory documents, significantly reducing manual review time for domain experts.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Developed a content automation engine that transformed structured data from Excel into dynamically generated, sourced news articles, streamlining content creation workflows.
           </>,
         ],
         images: [],
@@ -146,17 +148,17 @@ const about = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Purdue University, West Lafayette",
+        description: <>CS Honors, specializing in Machine Intelligence and Software Engineering.</>,
       },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
+      // {
+      //   name: "Build the Future",
+      //   description: <>Studied online marketing and personal branding.</>,
+      // },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: false, // set to false to hide this section
     title: "Technical skills",
     skills: [
       {

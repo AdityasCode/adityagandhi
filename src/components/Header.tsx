@@ -63,7 +63,7 @@ export const Header = () => {
         data-border="rounded"
       >
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Flex hide="s">{person.location}</Flex>}
+          {display.location && <Flex hide="s">{person.actual_location}</Flex>}
         </Flex>
         <Flex fillWidth horizontal="center">
           <Flex
