@@ -56,7 +56,7 @@ const home = {
   headline: <>Translating big data into simple, actionable answers</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
+    title: <>Recent project: <strong className="ml-4">RetailMind</strong></>,
     href: "/work/retailmind-project-page",
   },
   subline: (

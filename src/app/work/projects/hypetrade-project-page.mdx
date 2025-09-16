@@ -31,10 +31,11 @@ HypeTrade is a stock sentiment analysis tracker that combines real-time data pip
 - **Vertex AI + Hugging Face API**: For deploying and scaling FinBERT sentiment analysis.
 - **React + Vite**: For a responsive and modern frontend, with dark/light mode support.
 - **Docker + Cloud Build**: For containerization and automated build/deploy pipelines.
+- **Vercel**: For frontend hosting as a proxy with zero costs.
 
 ## Challenges and Learnings
 
-Scaling both infrastructure and machine learning inference was one of the biggest challenges. To keep costs down while handling 500+ tickers daily, I designed batching and tokenization strategies for FinBERT, cutting inference costs by over half. On the engineering side, building a real-time forum and messaging system required careful design around database queries and concurrency. Running as Scrum Master, I also learned to balance task prioritization, cross-team collaboration, and feature delivery in an agile setting.
+Scaling both infrastructure and machine learning inference was one of the biggest challenges. To keep costs down while handling 500+ tickers daily, I designed batching and tokenization strategies for FinBERT, cutting inference costs by over half. Further, I moved frontend hosting to Vercel as a proxy, splitting costs between GCP and the aforementioned, which reduced build costs through Vercel's free tier. On the engineering side, building a real-time forum and messaging system required careful design around database queries and concurrency. Running as Scrum Master, I also learned to balance task prioritization, cross-team collaboration, and feature delivery in an agile setting.
 
 ## Outcome
 
