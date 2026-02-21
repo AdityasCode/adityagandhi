@@ -258,4 +258,11 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+// Resume link to the public PDF. This is not a Next.js route but a static asset in `public/resume/resume.pdf`.
+const resume = {
+  path: "/resume/resume.pdf",
+  label: "Resume",
+  display: true,
+};
+
+export { person, social, newsletter, home, about, blog, work, gallery, resume };

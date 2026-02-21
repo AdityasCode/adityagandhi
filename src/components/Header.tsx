@@ -8,7 +8,7 @@ import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
 import { routes, display } from "@/app/resources";
-import { person, about, blog, work, gallery } from "@/app/resources/content";
+import { person, about, blog, work, gallery, resume } from "@/app/resources/content";
 import { ThemeToggle } from "./ThemeToggle";
 
 type TimeDisplayProps = {
@@ -148,6 +148,30 @@ export const Header = () => {
                   />
                 </>
               )}
+
+              {/* Resume: static PDF in public/resume/resume.pdf - open in new tab */}
+              {resume && resume.display && (
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="document"
+                    href={resume.path}
+                    label={resume.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    selected={pathname.startsWith("/resume")}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="document"
+                    href={resume.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    selected={pathname.startsWith("/resume")}
+                  />
+                </>
+              )}
+
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
