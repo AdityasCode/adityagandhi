@@ -150,27 +150,18 @@ export const Header = () => {
               )}
 
               {/* Resume: static PDF in public/resume/resume.pdf - open in new tab */}
-              {resume && resume.display && (
-                <>
-                  <ToggleButton
+              <a
+                  href={resume.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <ToggleButton
                     className="s-flex-hide"
                     prefixIcon="document"
-                    href={resume.path}
                     label={resume.label}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     selected={pathname.startsWith("/resume")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="document"
-                    href={resume.path}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    selected={pathname.startsWith("/resume")}
-                  />
-                </>
-              )}
+                />
+              </a>
 
               {display.themeSwitcher && (
                 <>
