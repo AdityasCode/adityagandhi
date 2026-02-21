@@ -258,4 +258,9 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+const resume = {
+  path: "/resume/Aditya_Gandhi_Resume.pdf",
+  label: "Resume",
+};
+
+export { person, social, newsletter, home, about, blog, work, gallery, resume };
