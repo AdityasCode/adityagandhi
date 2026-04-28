@@ -51,8 +51,8 @@ const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
+  title: "Aditya Gandhi, CS at Purdue",
+  description: "Aditya Gandhi Computer Science Purdue University Software Engineer Machine Learning Open Source",
   headline: <>Translating big data into simple, actionable answers</>,
   featured: {
     display: true,

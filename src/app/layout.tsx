@@ -2,15 +2,16 @@ import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
 import classNames from "classnames";
+import type { Metadata } from "next";
 
 import { Footer, Header, RouteGuard } from "@/components";
-import { baseURL, effects, style, font, home } from "@/app/resources";
+import { baseURL, effects, style, font, home, person } from "@/app/resources";
 
 import { Background, Column, Flex, ThemeProvider, ToastProvider } from "@/once-ui/components";
 import { opacity, SpacingToken } from "@/once-ui/types";
 import { Meta } from "@/once-ui/modules";
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   return Meta.generate({
     title: home.title,
     description: home.description,
@@ -25,6 +26,22 @@ interface RootLayoutProps {
 }
 
 export default async function RootLayout({ children }: RootLayoutProps) {
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    url: baseURL,
+    sameAs: [
+      "https://github.com/AdityasCode",
+      "https://linkedin.com/in/adga",
+      "https://cs.purdue.edu/homes/gandh105/",
+    ],
+    affiliation: {
+      "@type": "CollegeOrUniversity",
+      name: "Purdue University",
+    },
+  };
+
   return (
     <Flex
       suppressHydrationWarning
@@ -47,6 +64,13 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head>
+        <title>{home.title}</title>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd),
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

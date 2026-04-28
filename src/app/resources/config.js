@@ -1,5 +1,5 @@
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://demo.magic-portfolio.com";
+// IMPORTANT: Set this to your production domain for SEO, sitemap, and metadata.
+const baseURL = process.env.NEXT_PUBLIC_SITE_URL || "https://adityagandhi.vercel.app";
 
 const routes = {
   "/": true,
