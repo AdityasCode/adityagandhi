@@ -1,3 +1,5 @@
+import { baseURL } from "./config";
+
 const person = {
   firstName: "Aditya",
   lastName: "Gandhi",
@@ -258,9 +260,9 @@ const gallery = {
   ],
 };
 
-// Resume link to the public PDF. This is not a Next.js route but a static asset in `public/resume/resume.pdf`.
+// Resume link to the public PDF asset.
 const resume = {
-  path: "/resume.pdf",
+  path: new URL("/resume.pdf", baseURL).toString(),
   label: "Resume",
   display: true,
 };
