@@ -16,6 +16,25 @@
         top: auto;
         position: fixed;
         bottom: var(--static-space-24);
+        flex-direction: column;
+        gap: var(--static-space-8);
+    }
+
+    .socialSlot {
+        justify-content: center;
+        padding-left: 0;
+    }
+
+    .socialLinks {
+        padding: var(--static-space-4);
+        border: 1px solid var(--neutral-alpha-medium);
+        border-radius: var(--radius-m);
+        background: var(--surface-background);
+        backdrop-filter: blur(var(--static-space-8));
+    }
+
+    .clockSlot {
+        display: none;
     }
 
     .mask {

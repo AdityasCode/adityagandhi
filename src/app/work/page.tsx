@@ -1,8 +1,10 @@
-import { Column } from "@/once-ui/components";
+import { Column, Flex, Heading } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
 import { about, person, work } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 import { Projects } from "@/components/work/Projects";
+import { FeaturedExperiences } from "@/components/work/FeaturedExperiences";
+import { ScheduleCall } from "@/components/ScheduleCall";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -16,7 +18,7 @@ export async function generateMetadata() {
 
 export default function Work() {
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="m" gap="xl">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -30,6 +32,12 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
+      <Flex fillWidth paddingX="l" gap="16" wrap horizontal="space-between" vertical="center">
+        <Heading as="h1" variant="display-strong-s">Experience &amp; Projects</Heading>
+        <ScheduleCall />
+      </Flex>
+      <FeaturedExperiences />
+      <Heading as="h2" variant="display-strong-xs" paddingX="l">Projects</Heading>
       <Projects />
     </Column>
   );

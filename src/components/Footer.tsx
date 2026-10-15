@@ -1,5 +1,5 @@
-import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components";
-import { person, social } from "@/app/resources/content";
+import { Flex, SmartLink, Text } from "@/once-ui/components";
+import { display, person } from "@/app/resources";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
@@ -35,23 +35,13 @@ export const Footer = () => {
             </SmartLink>
           </Text>
         </Text>
-        <Flex gap="16">
-          {social.map(
-            (item) =>
-              item.link && (
-                <IconButton
-                  key={item.name}
-                  href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
-                />
-              ),
-          )}
-        </Flex>
+        {display.location && (
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            {person.actual_location}
+          </Text>
+        )}
       </Flex>
-      <Flex height="80" show="s"></Flex>
+      <Flex height="128" show="s"></Flex>
     </Flex>
   );
 };

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
+import { ProjectMetrics } from "@/components/work/ProjectMetrics";
 import { getPosts } from "@/app/utils/utils";
 import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
 import { baseURL } from "@/app/resources";
@@ -89,11 +90,14 @@ export default async function Project({
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <Flex gap="12" marginBottom="24" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="m" />}
+          {avatars.length > 0 && <AvatarGroup reverse avatars={avatars} size="m" />}
           <Text variant="body-default-s" onBackground="neutral-weak">
-            {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
+            {post.metadata.timeframe
+              ? `Project period: ${post.metadata.timeframe}`
+              : post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
           </Text>
         </Flex>
+        <ProjectMetrics title={post.metadata.title} metrics={post.metadata.metrics} />
         <CustomMDX source={post.content} />
       </Column>
       <ScrollToHash />

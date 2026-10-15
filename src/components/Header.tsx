@@ -3,12 +3,12 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
+import { Fade, Flex, IconButton, Line, ToggleButton } from "@/once-ui/components";
 // @ts-ignore
 import styles from "@/components/Header.module.scss";
 
 import { routes, display } from "@/app/resources";
-import { person, about, blog, work, gallery, resume } from "@/app/resources/content";
+import { person, social, about, blog, work, gallery, resume } from "@/app/resources/content";
 import { ThemeToggle } from "./ThemeToggle";
 
 type TimeDisplayProps = {
@@ -50,7 +50,7 @@ export const Header = () => {
   return (
     <>
       <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
+      <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="128" zIndex={9} />
       <Flex
         fitHeight
         position="unset"
@@ -62,8 +62,20 @@ export const Header = () => {
         horizontal="center"
         data-border="rounded"
       >
-        <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Flex hide="s">{person.actual_location}</Flex>}
+        <Flex className={styles.socialSlot} paddingLeft="12" fillWidth vertical="center">
+          <Flex className={styles.socialLinks} as="nav" aria-label="Profile and contact links" gap="16">
+            {social.map((item) => item.link && (
+              <IconButton
+                key={item.name}
+                href={item.link}
+                icon={item.icon}
+                tooltip={item.name}
+                tooltipPosition="bottom"
+                size="s"
+                variant="ghost"
+              />
+            ))}
+          </Flex>
         </Flex>
         <Flex fillWidth horizontal="center">
           <Flex
@@ -83,14 +95,14 @@ export const Header = () => {
               {routes["/about"] && (
                 <>
                   <ToggleButton
-                    className="s-flex-hide"
+                    className="m-flex-hide"
                     prefixIcon="person"
                     href="/about"
                     label={about.label}
                     selected={pathname === "/about"}
                   />
                   <ToggleButton
-                    className="s-flex-show"
+                    className="m-flex-show"
                     prefixIcon="person"
                     href="/about"
                     selected={pathname === "/about"}
@@ -100,14 +112,14 @@ export const Header = () => {
               {routes["/work"] && (
                 <>
                   <ToggleButton
-                    className="s-flex-hide"
+                    className="m-flex-hide"
                     prefixIcon="grid"
                     href="/work"
                     label={work.label}
                     selected={pathname.startsWith("/work")}
                   />
                   <ToggleButton
-                    className="s-flex-show"
+                    className="m-flex-show"
                     prefixIcon="grid"
                     href="/work"
                     selected={pathname.startsWith("/work")}
@@ -117,14 +129,14 @@ export const Header = () => {
               {routes["/blog"] && (
                 <>
                   <ToggleButton
-                    className="s-flex-hide"
+                    className="m-flex-hide"
                     prefixIcon="book"
                     href="/blog"
                     label={blog.label}
                     selected={pathname.startsWith("/blog")}
                   />
                   <ToggleButton
-                    className="s-flex-show"
+                    className="m-flex-show"
                     prefixIcon="book"
                     href="/blog"
                     selected={pathname.startsWith("/blog")}
@@ -134,14 +146,14 @@ export const Header = () => {
               {routes["/gallery"] && (
                 <>
                   <ToggleButton
-                    className="s-flex-hide"
+                    className="m-flex-hide"
                     prefixIcon="gallery"
                     href="/gallery"
                     label={gallery.label}
                     selected={pathname.startsWith("/gallery")}
                   />
                   <ToggleButton
-                    className="s-flex-show"
+                    className="m-flex-show"
                     prefixIcon="gallery"
                     href="/gallery"
                     selected={pathname.startsWith("/gallery")}
@@ -149,19 +161,26 @@ export const Header = () => {
                 </>
               )}
 
-              {/* Resume: static PDF in public/resume/resume.pdf - open in new tab */}
-              <a
+              {resume.display && (
+                <a
                   href={resume.path}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="General resume (PDF, opens in a new tab)"
               >
                 <ToggleButton
-                    className="s-flex-hide"
+                    className="m-flex-hide"
                     prefixIcon="document"
                     label={resume.label}
                     selected={pathname.startsWith("/resume")}
                 />
-              </a>
+                <ToggleButton
+                    className="m-flex-show"
+                    prefixIcon="document"
+                    selected={false}
+                />
+                </a>
+              )}
 
               {display.themeSwitcher && (
                 <>
@@ -172,7 +191,7 @@ export const Header = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Flex fillWidth horizontal="end" vertical="center">
+        <Flex className={styles.clockSlot} fillWidth horizontal="end" vertical="center">
           <Flex
             paddingRight="12"
             horizontal="end"

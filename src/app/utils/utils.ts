@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import type { ProjectMetric } from "@/components/work/ProjectMetrics";
 
 type Team = {
   name: string;
@@ -12,9 +13,11 @@ type Team = {
 type Metadata = {
   title: string;
   publishedAt: string;
+  timeframe?: string;
   summary: string;
   image?: string;
   images: string[];
+  metrics: ProjectMetric[];
   tag?: string;
   team: Team[];
   link?: string;
@@ -44,10 +47,12 @@ function readMDXFile(filePath: string) {
 
   const metadata: Metadata = {
     title: data.title || "",
-    publishedAt: data.publishedAt,
+    publishedAt: data.publishedAt || "",
+    timeframe: data.timeframe || "",
     summary: data.summary || "",
     image: data.image || "",
     images: data.images || [],
+    metrics: data.metrics || [],
     tag: data.tag || [],
     team: data.team || [],
     link: data.link || "",

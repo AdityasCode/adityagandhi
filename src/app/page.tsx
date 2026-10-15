@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
+import { FeaturedExperiences } from "@/components/work/FeaturedExperiences";
+import { ScheduleCall } from "@/components/ScheduleCall";
 
 import { baseURL, routes } from "@/app/resources";
 import { home, about, person, newsletter } from "@/app/resources/content";
@@ -57,6 +59,7 @@ export default function Home() {
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
+            <Flex gap="12" wrap vertical="center">
             <Button
               id="about"
               data-border="rounded"
@@ -76,9 +79,12 @@ export default function Home() {
                 {about.title}
               </Flex>
             </Button>
+              <ScheduleCall />
+            </Flex>
           </RevealFx>
         </Column>
       </Column>
+      <FeaturedExperiences />
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 1]} />
       </RevealFx>

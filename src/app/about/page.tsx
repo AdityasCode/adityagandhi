@@ -16,6 +16,7 @@ import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React from "react";
 import { Meta, Schema } from "@/once-ui/modules";
+import { ScheduleCall } from "@/components/ScheduleCall";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -92,7 +93,7 @@ export default function About() {
             <Avatar src={person.avatar} size="xl" />
             <Flex gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
+              {person.actual_location}
             </Flex>
             {person.languages.length > 0 && (
               <Flex wrap gap="8">
@@ -114,28 +115,8 @@ export default function About() {
             marginBottom="32"
           >
             {about.calendar.display && (
-              <Flex
-                fitWidth
-                border="brand-alpha-medium"
-                className={styles.blockAlign}
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
-                background="brand-alpha-weak"
-                radius="full"
-                padding="4"
-                gap="8"
-                marginBottom="m"
-                vertical="center"
-              >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Flex paddingX="8">Schedule a call</Flex>
-                <IconButton
-                  href={about.calendar.link}
-                  data-border="rounded"
-                  variant="secondary"
-                  icon="chevronRight"
-                />
+              <Flex fitWidth className={styles.blockAlign} marginBottom="m">
+                <ScheduleCall />
               </Flex>
             )}
             <Heading className={styles.textAlign} variant="display-strong-xl">
@@ -192,7 +173,7 @@ export default function About() {
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                    <Flex fillWidth mobileDirection="column" gap="8" horizontal="space-between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
@@ -202,6 +183,7 @@ export default function About() {
                     </Flex>
                     <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
                       {experience.role}
+                      {experience.location && ` · ${experience.location}`}
                     </Text>
                     <Column as="ul" gap="16">
                       {experience.achievements.map((achievement: JSX.Element, index: number) => (
@@ -258,8 +240,18 @@ export default function About() {
                       {institution.name}
                     </Text>
                     <Text variant="heading-default-xs" onBackground="neutral-weak">
+                      {institution.timeframe}
+                    </Text>
+                    <Text variant="heading-default-xs" onBackground="neutral-weak">
                       {institution.description}
                     </Text>
+                    <Column as="ul" gap="16" marginTop="m">
+                      {institution.details.map((detail, index) => (
+                        <Text as="li" variant="body-default-m" key={`${institution.name}-${index}`}>
+                          {detail}
+                        </Text>
+                      ))}
+                    </Column>
                   </Column>
                 ))}
               </Column>

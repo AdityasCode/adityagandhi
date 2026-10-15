@@ -1,11 +1,15 @@
 import { Column, Heading } from "@/once-ui/components";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
-import { baseURL } from "@/app/resources";
+import { baseURL, routes } from "@/app/resources";
+import { notFound } from "next/navigation";
 import { blog, person, newsletter } from "@/app/resources/content";
 import { Meta, Schema } from "@/once-ui/modules";
 
 export async function generateMetadata() {
+  if (!routes["/blog"]) {
+    return { title: `Page Not Found – ${person.name}`, robots: { index: false, follow: false } };
+  }
   return Meta.generate({
     title: blog.title,
     description: blog.description,
@@ -16,6 +20,7 @@ export async function generateMetadata() {
 }
 
 export default function Blog() {
+  if (!routes["/blog"]) notFound();
   return (
     <Column maxWidth="s">
       <Schema

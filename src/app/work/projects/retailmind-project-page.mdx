@@ -1,7 +1,14 @@
 ---
 title: "RetailMind"
-publishedAt: "2024-04-01"
-summary: "Explore the enduring debate between using spaces and tabs for code indentation, and why this choice matters more than you might think."
+timeframe: "June - August 2025"
+metrics:
+  - value: "4,500+"
+    label: "Store-department entities"
+  - value: "<300ms"
+    label: "Forecasting inference"
+  - value: ">60%"
+    label: "Accuracy gain vs. baseline"
+summary: "Retail analytics and hierarchical forecasting, backed by distributed processing across 4,500+ store-department entities and sub-300ms forecasting inference."
 images:
   - "/images/projects/project-02/image-01.jpg"
   - "/images/projects/project-02/image-02.jpg"
@@ -17,19 +24,27 @@ This project, **RetailMind**, was built to solve this exact problem. The goal wa
 
 ---
 
+## Distributed Backend and Hierarchical Forecasting
+
+During my June–August 2025 internship at **Retailmind (Stealth Startup)**, I architected a distributed, multithreaded backend processing data across **45 stores** and **4,500+ store-department entities**. I designed asynchronous pipelines that maintained availability under compute-intensive peak loads.
+
+I engineered a hierarchical forecasting service across multiple model backends, including **Prophet and AutoGluon**, with **sub-300ms inference latency**. I implemented **MinT reconciliation** from the ground up, outperforming baseline models and improving prediction accuracy by **over 60%**.
+
+I also architected a multi-tool agent with multithreading to keep the UI responsive during long-running ML tasks, alongside the forecasting service. The inference latency measurement describes forecasting inference; the interface responsiveness is a separate aspect of the agent architecture.
+
 ## Key Features
 
 - **Automated EDA Dashboard**: Provides an immediate, zero-effort overview of key performance indicators upon data upload. This features visualizations for sales-over-time, top-performing stores and departments, and the statistical impact of holidays on sales.
-- **Conversational AI Agent**: The interactive core of the platform. Built using **LangChain** and **GPT-4o**, the agent understands complex, natural language queries, maintains conversational memory for follow-up questions, and dynamically selects from over a dozen tools to generate bespoke analyses on demand.
+- **Conversational AI Agent**: The interactive core of the platform. Built using **LangChain** and **OpenAI models**, the agent understands complex, natural language queries, maintains conversational memory for follow-up questions, and dynamically selects from over a dozen tools to generate bespoke analyses on demand.
 - **Causal Impact Analysis**: The platform's "killer feature." This system bridges the gap between quantitative sales data and unstructured qualitative information. It ingests documents (like marketing plans or press releases), creates **semantic vector embeddings**, and correlates these business events with statistical anomalies in sales data to provide data-driven explanations for performance spikes or dips.
 
 ---
 
 ## Technologies Used
 
-- **AI & Orchestration**: LangChain, OpenAI (GPT-4o-mini)
+- **AI & Orchestration**: LangChain, OpenAI
 - **Frontend**: Streamlit
-- **Data Science**: Pandas, AutoGluon (Time-Series Forecasting)
+- **Data Science**: Pandas, Prophet, AutoGluon (Time-Series Forecasting), MinT reconciliation
 - **NLP & Vector Embeddings**: Sentence-Transformers
 - **Core Stack**: Python
 

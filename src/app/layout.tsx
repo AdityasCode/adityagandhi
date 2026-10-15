@@ -5,7 +5,7 @@ import classNames from "classnames";
 import type { Metadata } from "next";
 
 import { Footer, Header, RouteGuard } from "@/components";
-import { baseURL, effects, style, font, home, person } from "@/app/resources";
+import { baseURL, effects, style, font, home, person, social } from "@/app/resources";
 
 import { Background, Column, Flex, ThemeProvider, ToastProvider } from "@/once-ui/components";
 import { opacity, SpacingToken } from "@/once-ui/types";
@@ -30,12 +30,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: person.name,
+    jobTitle: person.role,
+    email: person.email,
+    telephone: person.phone,
     url: baseURL,
-    sameAs: [
-      "https://github.com/AdityasCode",
-      "https://linkedin.com/in/adga",
-      "https://cs.purdue.edu/homes/gandh105/",
-    ],
+    sameAs: social.map((profile) => profile.link).filter((link) => /^https?:\/\//.test(link)),
     affiliation: {
       "@type": "CollegeOrUniversity",
       name: "Purdue University",
@@ -64,7 +63,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head>
-        <title>{home.title}</title>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

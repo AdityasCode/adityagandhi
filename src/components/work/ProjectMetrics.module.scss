@@ -1,0 +1,40 @@
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  margin: 0;
+  padding: var(--static-space-16) 0;
+  border-block: 1px solid var(--neutral-alpha-weak);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-4);
+  min-width: 0;
+  padding-inline: var(--static-space-16);
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  & + & {
+    border-left: 1px solid var(--neutral-alpha-weak);
+  }
+}
+
+.value {
+  order: -1;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+  .metric {
+    padding-inline: var(--static-space-8);
+  }
+}

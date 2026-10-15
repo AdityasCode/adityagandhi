@@ -9,6 +9,7 @@ import {
   SmartLink,
   Text,
 } from "@/once-ui/components";
+import { ProjectMetrics, type ProjectMetric } from "@/components/work/ProjectMetrics";
 
 interface ProjectCardProps {
   href: string;
@@ -19,6 +20,7 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  metrics?: ProjectMetric[];
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -29,6 +31,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  metrics = [],
 }) => {
   return (
     <Column fillWidth gap="m">
@@ -85,6 +88,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </Column>
         )}
       </Flex>
+      <ProjectMetrics title={title} metrics={metrics} />
     </Column>
   );
 };

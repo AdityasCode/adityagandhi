@@ -43,7 +43,7 @@ export function Schema({
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
   const imageUrl = image
-    ? `${normalizedBaseURL}${image.startsWith("/") ? image : `/${image}`}`
+    ? new URL(image, `${normalizedBaseURL}/`).toString()
     : `${normalizedBaseURL}/og?title=${encodeURIComponent(title)}`;
 
   const url = `${normalizedBaseURL}${normalizedPath}`;
@@ -56,7 +56,7 @@ export function Schema({
     url,
   };
   
-  schema.sameAs = Object.values(social).filter(Boolean)
+  schema.sameAs = social.map((profile) => profile.link).filter((link) => /^https?:\/\//.test(link));
 
   if (as === "website") {
     schema.name = title;
